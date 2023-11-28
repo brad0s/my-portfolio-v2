@@ -109,6 +109,8 @@
   }
   &__picture {
     // position: relative;
+    transition: transform 0.1s;
+
     @include breakpoint('sm-desktop') {
       width: 60%;
     }

@@ -1,38 +1,23 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 // import { Fade } from 'react-reveal';
 // import { useStaticQuery, graphql } from 'gatsby';
 // import { GatsbyImage } from 'gatsby-plugin-image';
 import { projectsData } from '../../data/data';
+import TiltController from '../../utils/tilt';
 
 const Project = ({ project }) => {
-  const { title, subtitle, description, tags, url, repo, image } = project;
-
-  // const data = useStaticQuery(graphql`
-  //   {
-  //     images: allFile(filter: { extension: { nin: ["svg", "js"] } }) {
-  //       edges {
-  //         node {
-  //           relativePath
-  //           name
-  //           childImageSharp {
-  //             gatsbyImageData(
-  //               layout: CONSTRAINED
-  //               quality: 90
-  //               placeholder: BLURRED
-  //               formats: [AUTO, WEBP, AVIF]
-  //             )
-  //           }
-  //         }
-  //       }
-  //     }
-  //   }
-  // `);
-
-  // const gatsbyImg = data.images.edges.find((edge) =>
-  //   edge.node.relativePath.includes(image.filename)
-  // );
-  // const imagee = gatsbyImg.node.childImageSharp.gatsbyImageData;
+  const { id, title, subtitle, description, tags, url, repo, image } = project;
   const projectImage = require(`../../images/${image.filename}`);
+  const imageRef = useRef(null);
+
+  useEffect(() => {
+    const tiltController = new TiltController(imageRef.current);
+
+    return () => {
+      tiltController.root.removeEventListener('mousemove', tiltController.handleTilt);
+      tiltController.root.removeEventListener('mouseleave', tiltController.resetTilt);
+    };
+  }, []);
 
   return (
     <div className='Project'>
@@ -46,7 +31,9 @@ const Project = ({ project }) => {
           {tags &&
             tags.map((tag) => (
               // <Fade bottom key={tag}>
-              <li className='Project__info__tags__item'>{tag}</li>
+              <li key={tag} className='Project__info__tags__item'>
+                {tag}
+              </li>
               // </Fade>
             ))}
         </ul>
@@ -77,7 +64,7 @@ const Project = ({ project }) => {
         {/* </Fade> */}
       </div>
       {/* <Fade bottom> */}
-      <div className='Project__picture'>
+      <div ref={imageRef} className='Project__picture'>
         <a
           className=''
           target='_blank'
@@ -85,7 +72,6 @@ const Project = ({ project }) => {
           href={url}
           aria-label={`Link to portfolio project`}
         >
-          {/* <GatsbyImage image={imagee} alt={image.alt} /> */}
           <img src={projectImage} alt={image.alt} />
         </a>
       </div>
