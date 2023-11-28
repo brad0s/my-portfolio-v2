@@ -1,0 +1,50 @@
+.About {
+  display: flex;
+  flex-direction: column;
+  @include section(var(--theme-background), var(--theme-on-surface));
+  &__content {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+    &__title {
+      margin: 0 0 2rem;
+      font-size: 1.5rem;
+      text-align: center;
+    }
+    &__pic {
+      width: 288px;
+      align-self: center;
+    }
+  }
+  &__bio {
+    display: flex;
+    flex-direction: column;
+    @include breakpoint('tablet') {
+      width: 60ch;
+    }
+    &__text {
+      line-height: 1.25;
+      font-size: 1.25rem;
+      margin: 0 0 1rem;
+      &:last-of-type {
+        margin-bottom: 3rem;
+      }
+    }
+    &__btn-group {
+      display: flex;
+      flex-direction: column;
+      row-gap: 1rem;
+      &__link {
+        @include button(var(--theme-primary-hover));
+        box-shadow: 6px 6px 12px var($--theme-box-shadow-bg-darker),
+          -6px -6px 12px var($--theme-box-shadow-bg-lighter);
+        background-color: var(--theme-primary);
+        color: var(--theme-on-secondary);
+        border-color: var(--theme-primary);
+        align-self: center;
+        width: 40%;
+        font-weight: 600;
+      }
+    }
+  }
+}
