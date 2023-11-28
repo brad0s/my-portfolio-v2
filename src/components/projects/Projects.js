@@ -6,7 +6,7 @@ import { projectsData } from '../../data/data';
 import TiltController from '../../utils/tilt';
 
 const Project = ({ project }) => {
-  const { id, title, subtitle, description, tags, url, repo, image } = project;
+  const { title, subtitle, description, tags, url, repo, image } = project;
   const projectImage = require(`../../images/${image.filename}`);
   const imageRef = useRef(null);
 
