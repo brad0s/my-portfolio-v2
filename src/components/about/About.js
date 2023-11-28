@@ -24,7 +24,9 @@ function About() {
         <div className='About__bio'>
           {bio.map((item) => (
             // <Fade bottom key={item.id}>
-            <p className='About__bio__text'>{item.paragraph}</p>
+            <p key={item.id} className='About__bio__text'>
+              {item.paragraph}
+            </p>
             // </Fade>
           ))}
           {/* <Fade bottom> */}
