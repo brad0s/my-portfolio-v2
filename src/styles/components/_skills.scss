@@ -3,8 +3,11 @@
   background: linear-gradient(135deg, var(--theme-gradient-from) 30%, var(--theme-gradient-to) 85%);
   > .container {
     @include breakpoint('tablet') {
-      // max-width: 500px;
-      max-width: 60ch;
+      max-width: 1180px;
+    }
+
+    @include breakpoint('sm-desktop') {
+      padding: 12rem 2rem;
     }
   }
   &__title {
@@ -27,11 +30,8 @@
 }
 
 .Skill {
-  flex-grow: 1;
+  flex-grow: 0;
   transition: all 250ms ease;
-  @include breakpoint('tablet') {
-    flex-grow: 0;
-  }
 
   &:nth-child(4n + 1) {
     &:hover {

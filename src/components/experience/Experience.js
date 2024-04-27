@@ -1,13 +1,19 @@
 import React from 'react';
 // import { Fade } from 'react-reveal';
 import { experienceData } from '../../data/data';
+import { useIntersectionObserver } from '../../utils/hooks';
 
 const WorkItem = ({ work }) => {
   const { company, location, jobTitle, dates } = work;
 
+  const [containerRef, isVisible] = useIntersectionObserver({
+    threshold: [1],
+    rootMargin: '-50px',
+  });
+
   return (
     // <Fade top>
-    <li className='WorkItem'>
+    <li ref={containerRef} className={`WorkItem fade-in ${isVisible ? 'run-animation' : ''}`}>
       <div className='WorkItem__content'>
         <p className='WorkItem__content__title'>{jobTitle}</p>
         <p className='WorkItem__content__dates'>

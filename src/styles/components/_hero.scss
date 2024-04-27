@@ -99,10 +99,12 @@
           animation-fill-mode: forwards;
           animation-name: revealLtr;
           transform-origin: right;
+          border-radius: 5px;
         }
       }
     }
     &__button {
+      display: block;
       position: relative;
       @include button(transparent);
       border-color: var(--theme-primary);

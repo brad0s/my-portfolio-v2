@@ -1,18 +1,23 @@
 import React, { useContext, useState, useEffect } from 'react';
-// import Fade from 'react-reveal';
 import { ThemeContext } from '../../context/ThemeContext';
 import heroImageDark from '../../images/top.svg';
 import heroImageLight from '../../images/top-light.svg';
 import { heroData } from '../../data/data';
+import { useIntersectionObserver } from '../../utils/hooks';
 
 function Hero() {
   const { header, cta } = heroData;
   const { theme } = useContext(ThemeContext);
   const [bgInit, setBgInit] = useState(false);
 
+  // animate background image
   useEffect(() => {
     setTimeout(() => setBgInit(true), 500);
   }, []);
+
+  const [containerRef, isVisible] = useIntersectionObserver({
+    threshold: [0.5],
+  });
 
   return (
     <section className='Hero' id='Home'>
@@ -22,7 +27,6 @@ function Hero() {
       ></div>
       <div className='container'>
         <div className='Hero__content'>
-          {/* <Fade bottom duration={1000} delay={500}> */}
           <h1 className='Hero__content__title'>
             {header.title}
             <span className='Hero__content__title--underline'>{header.titleAccent}</span>
@@ -30,12 +34,14 @@ function Hero() {
             {header.subTitle}{' '}
             <span className='Hero__content__title--accent'>{header.subTitleAccent}</span>.
           </h1>
-          {/* </Fade> */}
-          {/* <Fade bottom duration={1000} delay={1000}> */}
-          <a href='#About' className='Hero__content__button'>
-            {cta}
-          </a>
-          {/* </Fade> */}
+          <div
+            ref={containerRef}
+            className={`slide-up-fade-in delay-animation--3000 ${isVisible ? 'run-animation' : ''}`}
+          >
+            <a href='#About' className='Hero__content__button'>
+              {cta}
+            </a>
+          </div>
         </div>
       </div>
     </section>

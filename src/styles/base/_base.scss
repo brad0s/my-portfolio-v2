@@ -16,9 +16,8 @@ html {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
-      'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
-      'Helvetica Neue', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
+      'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
     background-color: var(--theme-background);
     color: var(--theme-on-surface);
 
@@ -47,4 +46,32 @@ html {
 
 :root {
   font-size: 16px;
+}
+
+.slide-up-fade-in {
+  @include animate(500ms, ease-out, 0s, 1, normal, backwards, paused, slide-up-fade-in);
+}
+
+.slide-right {
+  @include animate(500ms, ease-out, 0s, 1, normal, backwards, paused, slide-in-right);
+}
+
+.slide-left {
+  @include animate(500ms, ease-out, 0s, 1, normal, backwards, paused, slide-in-left);
+}
+
+.fade-in {
+  @include animate(2000ms, ease-out, 0s, 1, normal, backwards, paused, fade-in-anim);
+}
+
+.delay-animation--1000 {
+  animation-delay: 1000ms;
+}
+
+.delay-animation--3000 {
+  animation-delay: 3000ms;
+}
+
+.run-animation {
+  animation-play-state: running;
 }
