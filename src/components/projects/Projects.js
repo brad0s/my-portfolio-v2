@@ -1,14 +1,13 @@
 import React, { useRef, useEffect } from 'react';
-// import { Fade } from 'react-reveal';
-// import { useStaticQuery, graphql } from 'gatsby';
-// import { GatsbyImage } from 'gatsby-plugin-image';
 import { projectsData } from '../../data/data';
 import TiltController from '../../utils/tilt';
+import { useIntersectionObserver } from '../../utils/hooks';
 
-const Project = ({ project }) => {
+const Project = ({ project, index }) => {
   const { title, subtitle, description, tags, url, repo, image } = project;
   const projectImage = require(`../../images/${image.filename}`);
   const imageRef = useRef(null);
+  const animationClassName = index % 2 === 0 ? 'slide-left' : 'slide-right';
 
   useEffect(() => {
     const tiltController = new TiltController(imageRef.current);
@@ -19,10 +18,16 @@ const Project = ({ project }) => {
     };
   }, []);
 
+  const [containerRef, isVisible] = useIntersectionObserver({
+    threshold: [0.1],
+  });
+
   return (
-    <div className='Project'>
+    <div
+      ref={containerRef}
+      className={`Project ${animationClassName} ${isVisible ? 'run-animation' : ''}`}
+    >
       <div className='Project__info'>
-        {/* <Fade bottom> */}
         <h3 className='Project__info__title'>
           {title} <span className='Project__info__title--subtitle'>{subtitle}</span>
         </h3>
@@ -30,15 +35,12 @@ const Project = ({ project }) => {
         <ul className='Project__info__tags'>
           {tags &&
             tags.map((tag) => (
-              // <Fade bottom key={tag}>
               <li key={tag} className='Project__info__tags__item'>
                 {tag}
               </li>
-              // </Fade>
             ))}
         </ul>
-        {/* </Fade> */}
-        {/* <Fade bottom> */}
+
         <div className='Project__info__links'>
           <a
             className='Project__info__links__link Project__info__links__link--primary'
@@ -61,9 +63,8 @@ const Project = ({ project }) => {
             </a>
           )}
         </div>
-        {/* </Fade> */}
       </div>
-      {/* <Fade bottom> */}
+
       <div ref={imageRef} className='Project__picture'>
         <a
           className=''
@@ -72,10 +73,9 @@ const Project = ({ project }) => {
           href={url}
           aria-label={`Link to portfolio project`}
         >
-          <img src={projectImage} alt={image.alt} />
+          <img src={projectImage} alt={image.alt} width='636' height='332' />
         </a>
       </div>
-      {/* </Fade> */}
     </div>
   );
 };
@@ -84,12 +84,10 @@ function Projects() {
   return (
     <section className='Projects' id='Projects'>
       <div className='container'>
-        {/* <Fade bottom> */}
         <h2 className='Projects__title'>Projects</h2>
-        {/* </Fade> */}
         <div className='Projects__content'>
-          {projectsData.map((project) => (
-            <Project project={project} key={project.id} />
+          {projectsData.map((project, index) => (
+            <Project project={project} key={project.id} index={index} />
           ))}
         </div>
       </div>

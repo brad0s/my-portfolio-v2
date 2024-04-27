@@ -55,11 +55,37 @@ export const aboutData = {
       paragraph: `Check out my resume to view all my qualifications!`,
     },
   ],
-  resume: `https://docs.google.com/document/d/1JGp1HDxjFUPtvRqjD5t8BuzBNLiFWQBd3irOkpuySWw/preview`,
+  resume: `https://docs.google.com/document/d/e/2PACX-1vTy45cVuqDYyQA-8CV9bajCjscA6eY3pM82O7J2Lc5C6GKcD6XJde2ifi95alPc8w/pub`,
   blog: `https://brad0s.github.io/`,
 };
 
 export const projectsData = [
+  {
+    id: 'f',
+    title: `Country flag quiz.`,
+    subtitle: ``,
+    description: `I wanted to learn the countries flags so I created this quiz to help me learn. Try it out! My fastest time was under 9 minutes.`,
+    tags: [`react`, `scss`, `vite`],
+    image: {
+      filename: `country-flag-quiz.webp`,
+      alt: '197 countries flag quiz',
+    },
+    repo: `https://github.com/brad0s/country-flags-quiz`,
+    url: `https://dazzling-flan-0e0e1c.netlify.app/`,
+  },
+  {
+    id: 'c',
+    title: `Grant Writer Portfolio.`,
+    subtitle: `99% Lighthouse Score.`,
+    description: `Discover the pinnacle of web design: a fully custom WordPress theme powered by PHP, SCSS, and JavaScript. Bask in its near-perfect 99% Lighthouse score, a testament to its speed and user experience. Crafted with SEO best practices, this website ensures top-notch performance in search rankings.`,
+    tags: [`wordpress`, `php`, `seo`],
+    image: {
+      filename: `lani-portfolio.webp`,
+      alt: 'lani wright grant writer portfolio',
+    },
+    repo: ``,
+    url: `https://laniwright.com/`,
+  },
   {
     id: 'a',
     title: `API-connected.`,
@@ -82,19 +108,6 @@ export const projectsData = [
     },
     repo: ``,
     url: `https://www.nolo.com/lander/entry/llc/llcname`,
-  },
-  {
-    id: 'c',
-    title: `Grant Writer Portfolio.`,
-    subtitle: `99% Lighthouse Score.`,
-    description: `Discover the pinnacle of web design: a fully custom WordPress theme powered by PHP, SCSS, and JavaScript. Bask in its near-perfect 99% Lighthouse score, a testament to its speed and user experience. Crafted with SEO best practices, this website ensures top-notch performance in search rankings.`,
-    tags: [`wordpress`, `php`, `seo`],
-    image: {
-      filename: `lani-portfolio.webp`,
-      alt: 'lani wright grant writer portfolio',
-    },
-    repo: ``,
-    url: `https://laniwright.com/`,
   },
   {
     id: 'd',

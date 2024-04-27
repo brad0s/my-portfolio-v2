@@ -1,5 +1,6 @@
 .Projects {
   @include section(var(--theme-surface), var(--theme-on-surface));
+  overflow: hidden;
   > .container {
     border-bottom: 1px solid var(--theme-gray-400);
   }
