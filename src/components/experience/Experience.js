@@ -7,7 +7,7 @@ const WorkItem = ({ work }) => {
   const { company, location, jobTitle, dates } = work;
 
   const [containerRef, isVisible] = useIntersectionObserver({
-    threshold: [1],
+    threshold: [0.1],
     rootMargin: '-50px',
   });
 
