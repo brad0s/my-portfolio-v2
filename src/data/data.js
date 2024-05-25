@@ -61,6 +61,19 @@ export const aboutData = {
 
 export const projectsData = [
   {
+    id: 'g',
+    title: `Landing page.`,
+    subtitle: `Eye-Catching.`,
+    description: `I am captivated by the elegance of landing pages, and I tried take myself out of my comfort zone to create this landing page about the painter Claude Monet using React, HTML, and SCSS.`,
+    tags: [`react`, `scss`, `gsap`],
+    image: {
+      filename: `monet-app.webp`,
+      alt: 'Monet Landing page screenshot',
+    },
+    repo: `https://github.com/brad0s/monet-app`,
+    url: `https://wright-monet-app.netlify.app/`,
+  },
+  {
     id: 'f',
     title: `Country flag quiz.`,
     subtitle: ``,
@@ -122,19 +135,19 @@ export const projectsData = [
     repo: `https://github.com/brad0s/quote-generator`,
     url: `https://coruscating-nasturtium-3e8edf.netlify.app/`,
   },
-  {
-    id: 'e',
-    title: `Landing page.`,
-    subtitle: `Mobile first design.`,
-    description: `I am captivated by the elegance of landing pages, and drawing inspiration from Shopify, I embarked on a project to recreate their stunning landing page using React, HTML, JS, and SCSS.`,
-    tags: [`react`, `scss`],
-    image: {
-      filename: `skopify.webp`,
-      alt: 'Ecommerce Landing page screenshot',
-    },
-    repo: `https://github.com/brad0s/skopify-lander`,
-    url: `https://elegant-perlman-a14ab1.netlify.app/`,
-  },
+  // {
+  //   id: 'e',
+  //   title: `Landing page.`,
+  //   subtitle: `Mobile first design.`,
+  //   description: `I am captivated by the elegance of landing pages, and drawing inspiration from Shopify, I embarked on a project to recreate their stunning landing page using React, HTML, JS, and SCSS.`,
+  //   tags: [`react`, `scss`],
+  //   image: {
+  //     filename: `skopify.webp`,
+  //     alt: 'Ecommerce Landing page screenshot',
+  //   },
+  //   repo: `https://github.com/brad0s/skopify-lander`,
+  //   url: `https://elegant-perlman-a14ab1.netlify.app/`,
+  // },
 ];
 
 export const experienceData = [
