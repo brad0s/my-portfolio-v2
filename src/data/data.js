@@ -34,7 +34,7 @@ export const heroData = {
     titleAccent: `Braden Wright`,
     subTitle: `and I'm a `,
     subTitleAccent: `front end developer`,
-    typewriter: ['skater', 'surfer', 'front end developer'],
+    typewriter: ['surfer', 'soccer fan', 'front end developer'],
   },
   cta: `Know more!`,
 };
@@ -61,6 +61,19 @@ export const aboutData = {
 
 export const projectsData = [
   {
+    id: 'h',
+    title: `Bank Dice Game.`,
+    subtitle: ``,
+    description: `Inspired by the dice game "Bank", I create this game using react. A simple game where you roll a dice and try to ge the highest score possible.`,
+    tags: [`react`, `scss`],
+    image: {
+      filename: `bank-dice-game.webp`,
+      alt: 'Bank dice game screenshot',
+    },
+    repo: `https://github.com/brad0s/bank-dice-app`,
+    url: `https://bank-game.braden-wright.dev/`,
+  },
+  {
     id: 'g',
     title: `Landing page.`,
     subtitle: `Eye-Catching.`,
@@ -71,7 +84,7 @@ export const projectsData = [
       alt: 'Monet Landing page screenshot',
     },
     repo: `https://github.com/brad0s/monet-app`,
-    url: `https://wright-monet-app.netlify.app/`,
+    url: `https://monet.braden-wright.dev/`,
   },
   {
     id: 'f',
@@ -84,7 +97,7 @@ export const projectsData = [
       alt: '197 countries flag quiz',
     },
     repo: `https://github.com/brad0s/country-flags-quiz`,
-    url: `https://dazzling-flan-0e0e1c.netlify.app/`,
+    url: `https://flags-quiz.braden-wright.dev/`,
   },
   {
     id: 'c',
