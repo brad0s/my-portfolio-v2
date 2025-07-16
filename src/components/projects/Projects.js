@@ -5,7 +5,10 @@ import { useIntersectionObserver } from '../../utils/hooks';
 
 const Project = ({ project, index }) => {
   const { title, subtitle, description, tags, url, repo, image } = project;
-  const projectImage = require(`../../images/${image.filename}`);
+  let projectImage;
+  if (image.filename) {
+    projectImage = require(`../../images/${image.filename}`);
+  }
   const imageRef = useRef(null);
   const animationClassName = index % 2 === 0 ? 'slide-left' : 'slide-right';
 
